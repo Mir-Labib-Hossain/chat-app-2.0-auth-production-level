@@ -1,7 +1,10 @@
 import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
+import themeReducer from "../features/themeSlice";
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    theme: themeReducer,
+  },
 });
 
 export type AppDispatch = typeof store.dispatch;
