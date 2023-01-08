@@ -1,13 +1,7 @@
-import React from 'react'
+const Register = () => {
+  console.log("Register")
 
-type Props = {}
-
-const Register = (props: Props) => {
-  console.log("Register");
-  
-  return (
-    <div>Register</div>
-  )
+  return <div>Register</div>
 }
 
 export default Register

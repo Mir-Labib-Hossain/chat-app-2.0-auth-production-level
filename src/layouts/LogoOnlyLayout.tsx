@@ -1,16 +1,14 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom"
 
-type Props = {};
+const LogoOnlyLayout = () => {
+  console.log("LogoOnlyLayout")
 
-const LogoOnlyLayout = (props: Props) => {
-  console.log("LogoOnlyLayout");
-  
   return (
     <>
       <Link to={"/"}>Home</Link>
       <Outlet />
     </>
-  );
-};
+  )
+}
 
-export default LogoOnlyLayout;
+export default LogoOnlyLayout

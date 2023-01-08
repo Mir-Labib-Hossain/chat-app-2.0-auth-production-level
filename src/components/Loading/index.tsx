@@ -1,7 +1,5 @@
-type Props = {};
+const Loading = () => {
+  return <div>Loading</div>
+}
 
-const Loading = (props: Props) => {
-  return <div>Loading</div>;
-};
-
-export default Loading;
+export default Loading

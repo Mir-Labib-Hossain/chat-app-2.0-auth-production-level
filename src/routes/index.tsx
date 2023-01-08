@@ -1,22 +1,21 @@
-import { lazy, Suspense } from "react";
-import { Navigate, useRoutes } from "react-router-dom";
-import Loading from "../components/Loading";
-import LogoOnlyLayout from "../layouts/LogoOnlyLayout";
-import MainLayout from "../layouts/Main";
-import PrivateRoute from "../middlewares/PrivateRoute";
-import PublicRoute from "../middlewares/PublicRoute";
+import { lazy, Suspense } from "react"
+import { Navigate, useRoutes } from "react-router-dom"
+import Loading from "../components/Loading"
+import LogoOnlyLayout from "../layouts/LogoOnlyLayout"
+import MainLayout from "../layouts/Main"
+import PrivateRoute from "../middlewares/PrivateRoute"
+import PublicRoute from "../middlewares/PublicRoute"
 
-const Error = lazy(() => import("../pages/Error"));
-const Login = lazy(() => import("../pages/authentication/Login"));
-const Register = lazy(() => import("../pages/authentication/Register"));
-const Home = lazy(() => import("../pages/Home"));
-const Product = lazy(() => import("../pages/Product"));
-const ProductList = lazy(() => import("../pages/ProductList"));
+const Error = lazy(() => import("../pages/Error"))
+const Login = lazy(() => import("../pages/authentication/Login"))
+const Register = lazy(() => import("../pages/authentication/Register"))
+const Home = lazy(() => import("../pages/Home"))
+const Product = lazy(() => import("../pages/Product"))
+const ProductList = lazy(() => import("../pages/ProductList"))
 
 const Router = () => {
-  
-  console.log("Router");
-  
+  console.log("Router")
+
   return (
     <Suspense fallback={<Loading />}>
       {useRoutes([
@@ -62,6 +61,6 @@ const Router = () => {
         },
       ])}
     </Suspense>
-  );
-};
-export default Router;
+  )
+}
+export default Router

@@ -1,15 +1,13 @@
-import { Outlet } from "react-router-dom";
-import AppBar from "./Appbar";
+import { Outlet } from "react-router-dom"
+import AppBar from "./Appbar"
 
-type Props = {};
-
-const MainLayout = (props: Props) => {
+const MainLayout = () => {
   return (
     <>
       <AppBar />
       <Outlet />
     </>
-  );
-};
+  )
+}
 
-export default MainLayout;
+export default MainLayout

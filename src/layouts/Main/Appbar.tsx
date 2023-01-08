@@ -1,51 +1,53 @@
-import AdbIcon from "@mui/icons-material/Adb";
-import MenuIcon from "@mui/icons-material/Menu";
-import MuiAppBar from "@mui/material/AppBar";
-import Avatar from "@mui/material/Avatar";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
-import IconButton from "@mui/material/IconButton";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import Toolbar from "@mui/material/Toolbar";
-import Tooltip from "@mui/material/Tooltip";
-import Typography from "@mui/material/Typography";
-import * as React from "react";
-import { Link } from "react-router-dom";
-import { useAppDispatch } from "../../app/hooks";
-import { logout } from "../../features/authSlice";
+import AdbIcon from "@mui/icons-material/Adb"
+import MenuIcon from "@mui/icons-material/Menu"
+import MuiAppBar from "@mui/material/AppBar"
+import Avatar from "@mui/material/Avatar"
+import Box from "@mui/material/Box"
+import Button from "@mui/material/Button"
+import Container from "@mui/material/Container"
+import IconButton from "@mui/material/IconButton"
+import Menu from "@mui/material/Menu"
+import MenuItem from "@mui/material/MenuItem"
+import Toolbar from "@mui/material/Toolbar"
+import Tooltip from "@mui/material/Tooltip"
+import Typography from "@mui/material/Typography"
+import * as React from "react"
+import { Link } from "react-router-dom"
+import { useAppDispatch } from "../../app/hooks"
+import { logout } from "../../features/authSlice"
 
 const pages = [
   { name: "Products", link: "/products" },
   { name: "Login", link: "/auth/login" },
   { name: "Random", link: "/xox" },
-];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+]
+const settings = ["Profile", "Account", "Dashboard", "Logout"]
 
 function AppBar() {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
-  const dispatch = useAppDispatch();
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null)
+  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
+    null
+  )
+  const dispatch = useAppDispatch()
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
-  };
+    setAnchorElNav(event.currentTarget)
+  }
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
-  };
+    setAnchorElUser(event.currentTarget)
+  }
 
   const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
+    setAnchorElNav(null)
+  }
 
   const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+    setAnchorElUser(null)
+  }
 
   const logoutHandler = () => {
-    dispatch(logout());
-  };
+    dispatch(logout())
+  }
   return (
     <MuiAppBar position="static">
       <Container maxWidth="xl">
@@ -70,7 +72,14 @@ function AppBar() {
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton size="large" aria-label="account of current user" aria-controls="menu-appbar" aria-haspopup="true" onClick={handleOpenNavMenu} color="inherit">
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
+              color="inherit"
+            >
               <MenuIcon />
             </IconButton>
             <Menu
@@ -125,10 +134,22 @@ function AppBar() {
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map(({ name, link }) => (
               <Link to={link} key={name} onClick={handleCloseNavMenu}>
-                <Button sx={{ my: 2, color: "white", display: "block", textDecoration: "none" }}>{name}</Button>
+                <Button
+                  sx={{
+                    my: 2,
+                    color: "white",
+                    display: "block",
+                    textDecoration: "none",
+                  }}
+                >
+                  {name}
+                </Button>
               </Link>
             ))}
-            <Button onClick={logoutHandler} sx={{ my: 2, color: "white", display: "block" }}>
+            <Button
+              onClick={logoutHandler}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
               <Typography textAlign="center">Logout</Typography>
             </Button>
           </Box>
@@ -165,6 +186,6 @@ function AppBar() {
         </Toolbar>
       </Container>
     </MuiAppBar>
-  );
+  )
 }
-export default AppBar;
+export default AppBar
