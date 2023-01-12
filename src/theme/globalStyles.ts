@@ -31,13 +31,14 @@ const GlobalStyles = withStyles((theme: Theme) => ({
         "&::-webkit-inner-spin-button": { margin: 0, WebkitAppearance: "none" },
       },
     },
+
     textarea: {
       "&::-webkit-input-placeholder": { color: theme.palette.text.disabled },
       "&::-moz-placeholder": { opacity: 1, color: theme.palette.text.disabled },
       "&:-ms-input-placeholder": { color: theme.palette.text.disabled },
       "&::placeholder": { color: theme.palette.text.disabled },
     },
-    a: { color: theme.palette.primary.main },
+    a: { color: theme.palette.warning.main },
     img: { display: "block", maxWidth: "100%" },
 
     // Lazy Load Img

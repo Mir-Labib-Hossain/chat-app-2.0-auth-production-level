@@ -10,8 +10,6 @@ import {
 import {
   Box,
   Button,
-  Checkbox,
-  FormControlLabel,
   IconButton,
   Input,
   InputAdornment,
@@ -25,11 +23,11 @@ import { Link } from "react-router-dom"
 import { useAppDispatch } from "../../app/hooks"
 import { login } from "../../features/authSlice"
 
-const Login = () => {
+const Signup = () => {
   const dispatch = useAppDispatch()
-  console.log("login")
+  console.log("signup")
 
-  const handleLogin = () => {
+  const handleSignup = () => {
     dispatch(login())
   }
 
@@ -50,12 +48,12 @@ const Login = () => {
     >
       <Box width="400px">
         <img
-          src="https://ouch-cdn2.icons8.com/9FZFmNzLmJtt4cz8XtfpAlnQmY8bUxTOTqjXb-RabcE/rs:fit:624:456/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvMjMx/LzQ2YzVhYjYyLWE2/OGYtNDlmZS1iOTUy/LTJiYTJiNjJjYWM0/YS5wbmc.png"
+          src="https://ouch-cdn2.icons8.com/RQLw_7FAGpm_wLj-VDCKxkCniVxYnKsyiGkcdGykcuI/rs:fit:323:456/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvODYz/L2UzZTk2MDA0LWYy/ZGEtNDZjZi1hMzRi/LWE5NzNiOTNiMWE4/MS5wbmc.png"
           width="100%"
           alt="img"
         />
         <Typography fontSize="small" align="center">
-          Don't have an account ? <Link to="/auth/signup">Sign-Up</Link>
+          Already have an account ? <Link to="/auth/login">Log-in</Link>
         </Typography>
       </Box>
       <Box
@@ -84,6 +82,20 @@ const Login = () => {
             />
           </Box>
           <Box>
+            <InputLabel shrink>Email</InputLabel>
+            <Input
+              sx={{ p: 0 }}
+              type="text"
+              fullWidth
+              placeholder="email@gmail.com"
+              startAdornment={
+                <InputAdornment position="start">
+                  <Person />
+                </InputAdornment>
+              }
+            />
+          </Box>
+          <Box>
             <InputLabel shrink>Password</InputLabel>
             <Input
               sx={{ p: 0 }}
@@ -104,22 +116,32 @@ const Login = () => {
               }
             />
           </Box>
-          <FormControlLabel
-            control={<Checkbox color="warning" size="small" />}
-            label={<Typography fontSize="small">Remember me</Typography>}
-          />
+          <Box>
+            <InputLabel shrink>Confirm Password</InputLabel>
+            <Input
+              sx={{ p: 0 }}
+              type="password"
+              fullWidth
+              placeholder="* * * * * * * *"
+              startAdornment={
+                <InputAdornment position="start">
+                  <Lock />
+                </InputAdornment>
+              }
+            />
+          </Box>
         </Box>
         <Button
           variant="contained"
           size="large"
           color="warning"
-          onClick={handleLogin}
+          onClick={handleSignup}
           sx={{ width: "fit-content" }}
         >
-          <Typography color="white">Log-in</Typography>
+          <Typography color="white">Sign-Up</Typography>
         </Button>
         <Box display="flex" gap="10px" alignItems="center">
-          <Typography fontSize="small">Or login with</Typography>
+          <Typography fontSize="small">Or signup with</Typography>
           <IconButton
             size="small"
             sx={{
@@ -156,4 +178,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Signup

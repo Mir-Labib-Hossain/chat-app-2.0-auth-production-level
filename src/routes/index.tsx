@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react"
 import { Navigate, useRoutes } from "react-router-dom"
 import Loading from "../components/Loading"
+import AuthLayout from "../layouts/Auth"
 import LogoOnlyLayout from "../layouts/LogoOnlyLayout"
 import MainLayout from "../layouts/Main"
 import PrivateRoute from "../middlewares/PrivateRoute"
@@ -8,7 +9,7 @@ import PublicRoute from "../middlewares/PublicRoute"
 
 const Error = lazy(() => import("../pages/Error"))
 const Login = lazy(() => import("../pages/authentication/Login"))
-const Register = lazy(() => import("../pages/authentication/Register"))
+const Signup = lazy(() => import("../pages/authentication/Signup"))
 const Home = lazy(() => import("../pages/Home"))
 const Product = lazy(() => import("../pages/Product"))
 const ProductList = lazy(() => import("../pages/ProductList"))
@@ -23,13 +24,13 @@ const Router = () => {
           path: "/auth",
           element: (
             <PublicRoute>
-              <LogoOnlyLayout />
+              <AuthLayout />
             </PublicRoute>
           ),
           children: [
             { path: "", element: <Navigate to="/auth/login" /> },
             { path: "login", element: <Login /> },
-            { path: "register", element: <Register /> },
+            { path: "signup", element: <Signup /> },
           ],
         },
         {
