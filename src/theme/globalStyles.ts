@@ -38,19 +38,12 @@ const GlobalStyles = withStyles((theme: Theme) => ({
       "&:-ms-input-placeholder": { color: theme.palette.text.disabled },
       "&::placeholder": { color: theme.palette.text.disabled },
     },
-    a: { color: theme.palette.warning.main },
+    a: {
+      // color: theme.palette.warning.main
+      textDecoration: "none",
+      color: theme.palette.text.primary,
+    },
     img: { display: "block", maxWidth: "100%" },
-
-    // Lazy Load Img
-    ".blur-up": {
-      WebkitFilter: "blur(5px)",
-      filter: "blur(5px)",
-      transition: "filter 400ms, -webkit-filter 400ms",
-    },
-    ".blur-up.lazyloaded ": {
-      WebkitFilter: "blur(0)",
-      filter: "blur(0)",
-    },
   },
 }))(() => null)
 

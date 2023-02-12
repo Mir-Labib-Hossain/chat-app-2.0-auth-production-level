@@ -16,8 +16,6 @@ import {
   Input,
   InputAdornment,
   InputLabel,
-  styled,
-  TextField,
   Typography,
 } from "@mui/material"
 import { useState } from "react"
@@ -27,19 +25,9 @@ import { login } from "../../features/authSlice"
 
 const Login = () => {
   const dispatch = useAppDispatch()
-  console.log("login")
-
-  const handleLogin = () => {
-    dispatch(login())
-  }
-
-  const InputStyled = styled(TextField)(({ theme }) => ({
-    color: theme.palette.primary.contrastText,
-    backgroundColor: theme.palette.primary.main,
-    padding: theme.spacing(1),
-    borderRadius: theme.shape.borderRadius,
-  }))
+  const handleLogin = () => dispatch(login())
   const [showPassword, setShowPassword] = useState(false)
+
   return (
     <Box
       m={5}

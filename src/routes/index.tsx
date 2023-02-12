@@ -10,9 +10,8 @@ import PublicRoute from "../middlewares/PublicRoute"
 const Error = lazy(() => import("../pages/Error"))
 const Login = lazy(() => import("../pages/authentication/Login"))
 const Signup = lazy(() => import("../pages/authentication/Signup"))
-const Home = lazy(() => import("../pages/Home"))
-const Product = lazy(() => import("../pages/Product"))
-const ProductList = lazy(() => import("../pages/ProductList"))
+const Welcome = lazy(() => import("../pages/Welcome"))
+const Inbox = lazy(() => import("../pages/inbox"))
 
 const Router = () => {
   console.log("Router")
@@ -41,13 +40,10 @@ const Router = () => {
             </PrivateRoute>
           ),
           children: [
-            { path: "", element: <Home /> },
+            { path: "", element: <Welcome /> },
             {
-              path: "products",
-              children: [
-                { path: "", element: <ProductList /> },
-                { path: ":productId", element: <Product /> },
-              ],
+              path: ":chatId",
+              element: <Inbox />,
             },
           ],
         },
